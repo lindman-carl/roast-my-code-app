@@ -6,7 +6,7 @@ type Props = {
 
 const CodeInput = ({ active }: Props) => {
   const [textInput, setTextInput] = useState<string>(
-    "function (x) {\n  return x*x/x\n}" + "\n".repeat(7),
+    "function (x) {\n  return x*x/x\n}\n",
   );
 
   if (!active) return null;
