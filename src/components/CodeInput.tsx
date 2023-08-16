@@ -1,31 +1,18 @@
-import { useState } from "react";
+import {} from "react";
 
 type Props = {
   active: boolean;
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
-const CodeInput = ({ active }: Props) => {
-  const [textInput, setTextInput] = useState<string>(
-    "function (x) {\n  return x*x/x\n}\n",
-  );
-
+const CodeInput = ({ value, handleChange, active }: Props) => {
   if (!active) return null;
-
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    console.log(e.target.value);
-
-    // disable newlines after 10 lines
-    if (e.target.value.split("\n").length > 10) {
-      return;
-    }
-
-    setTextInput(e.target.value);
-  };
 
   return (
     <Container>
       <RowNumbers />
-      <TextInput value={textInput} handleChange={handleChange} />
+      <TextInput value={value} handleChange={handleChange} />
     </Container>
   );
 };
